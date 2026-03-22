@@ -35,9 +35,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ErrorHandler handleInternalServerErrorException(Exception ex) {
+    public ErrorHandler handleInternalServerErrorException() {
 
-        return new ErrorHandler(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage() , TIMESTAMP);
+        return new ErrorHandler(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error", TIMESTAMP);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
