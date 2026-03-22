@@ -45,7 +45,7 @@ public class UserRequestDto {
 
     @NotNull(message = "Mobile number cannot be null")
     @NotBlank(message = "Mobile number is required")
-    @Size(min = 11, max = 14, message = "Mobile number must be 14 characters ")
+    @Size(min = 11, max = 14, message = "Mobile number must be between 11 and 14 characters")
     @Pattern(regexp = "^\\+?[1-9][0-9]{11,14}$",
             message = "Invalid mobile number format")
     @Column(updatable = false)
