@@ -1,6 +1,6 @@
-package com.grolfbank.grolfbankusers.repository;
+package com.grolfbank.users.repository;
 
-import com.grolfbank.grolfbankusers.entity.User;
+import com.grolfbank.users.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

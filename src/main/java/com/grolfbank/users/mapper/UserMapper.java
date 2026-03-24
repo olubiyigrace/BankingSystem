@@ -1,8 +1,8 @@
-package com.grolfbank.grolfbankusers.mapper;
+package com.grolfbank.users.mapper;
 
-import com.grolfbank.grolfbankusers.dto.UserRequestDto;
-import com.grolfbank.grolfbankusers.dto.UserResponseDto;
-import com.grolfbank.grolfbankusers.entity.User;
+import com.grolfbank.users.dto.UserRequestDto;
+import com.grolfbank.users.dto.UserResponseDto;
+import com.grolfbank.users.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,7 +1,6 @@
-package com.grolfbank.grolfbankusers.exception;
+package com.grolfbank.users.exception;
 
-import com.grolfbank.grolfbankusers.util.ErrorHandler;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+import com.grolfbank.users.util.ErrorHandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -37,7 +36,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorHandler handleInternalServerErrorException(Exception ex) {
 
-        return new ErrorHandler(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage() , TIMESTAMP);
+        return new ErrorHandler(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage() + ex.getCause(), TIMESTAMP);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

@@ -1,4 +1,4 @@
-package com.grolfbank.grolfbankusers.util;
+package com.grolfbank.users.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,8 +1,12 @@
-package com.grolfbank.grolfbankusers.entity;
+package com.grolfbank.users.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.grolfbank.nextofkin.entity.NextOfKin;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -12,6 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Table(name = "users_table")
 
 public class User{
@@ -19,39 +24,26 @@ public class User{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fullName")
     private String fullName;
-
-    @Column(name = "dateOfBirth")
     private LocalDate dateOfBirth;
-
-    @Column(name = "email")
     private String email;
-
-    @Column(name = "phoneNumber")
     private String mobile;
-
-    @Column(name = "bvn")
     private String bvn;
-
-    @Column(name = "nin")
     private String nin;
-
-    @Column(name = "password")
     private String password;
-
-    @Column(name = "gender")
     private String gender;
-
-    @Column(name = "occupation")
     private String occupation;
 
+    @CreatedDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
+    @LastModifiedDate
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
     private LocalDateTime updatedAt;
 
-
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "nextOfKinId", nullable = false)
+    private NextOfKin nextOfKin;
 }

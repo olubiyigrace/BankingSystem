@@ -1,4 +1,4 @@
-package com.grolfbank.grolfbankusers.dto;
+package com.grolfbank.users.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

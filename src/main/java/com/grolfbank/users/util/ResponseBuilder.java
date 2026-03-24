@@ -1,4 +1,4 @@
-package com.grolfbank.grolfbankusers.util;
+package com.grolfbank.users.util;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

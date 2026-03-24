@@ -1,4 +1,4 @@
-package com.grolfbank.grolfbankusers.exception;
+package com.grolfbank.users.exception;
 
 public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String message) {

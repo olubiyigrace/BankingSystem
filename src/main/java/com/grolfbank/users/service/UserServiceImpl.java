@@ -1,13 +1,15 @@
-package com.grolfbank.grolfbankusers.service;
+package com.grolfbank.users.service;
 
-import com.grolfbank.grolfbankusers.entity.User;
-import com.grolfbank.grolfbankusers.exception.ConflictException;
-import com.grolfbank.grolfbankusers.exception.CustomBadRequest;
-import com.grolfbank.grolfbankusers.exception.EntityNotFoundException;
-import com.grolfbank.grolfbankusers.mapper.UserMapper;
-import com.grolfbank.grolfbankusers.repository.UserRepository;
-import com.grolfbank.grolfbankusers.dto.UserRequestDto;
-import com.grolfbank.grolfbankusers.dto.UserResponseDto;
+import com.grolfbank.nextofkin.dto.NextOfKinRequestDto;
+import com.grolfbank.nextofkin.entity.NextOfKin;
+import com.grolfbank.nextofkin.repository.NextOfKinRepository;
+import com.grolfbank.users.entity.User;
+import com.grolfbank.users.exception.ConflictException;
+import com.grolfbank.users.exception.EntityNotFoundException;
+import com.grolfbank.users.mapper.UserMapper;
+import com.grolfbank.users.repository.UserRepository;
+import com.grolfbank.users.dto.UserRequestDto;
+import com.grolfbank.users.dto.UserResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,17 @@ public class UserServiceImpl implements UserService{
 
             User newUser = userMapper.userRequestDtoToEntity(userRequestDto);
                    newUser.setCreatedAt(LocalDateTime.now());
+
+                  NextOfKinRequestDto nextOfKinRequestDto = userRequestDto.getNextOfKinRequestDto();
+                   NextOfKin newKin = NextOfKin.builder()
+                           .fullName(nextOfKinRequestDto.getFullName())
+                           .relationship(nextOfKinRequestDto.getRelationship())
+                           .address(nextOfKinRequestDto.getAddress())
+                           .occupation(nextOfKinRequestDto.getOccupation())
+                           .build();
+
+                    newKin.setUser(newUser);
+                    newUser.setNextOfKin(newKin);
                     userRepository.save(newUser);
     }
 

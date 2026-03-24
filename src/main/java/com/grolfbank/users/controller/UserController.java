@@ -1,9 +1,8 @@
-package com.grolfbank.grolfbankusers.controller;
+package com.grolfbank.users.controller;
 
-import com.grolfbank.grolfbankusers.dto.UserRequestDto;
-import com.grolfbank.grolfbankusers.entity.User;
-import com.grolfbank.grolfbankusers.service.UserService;
-import com.grolfbank.grolfbankusers.util.ResponseBuilder;
+import com.grolfbank.users.dto.UserRequestDto;
+import com.grolfbank.users.service.UserService;
+import com.grolfbank.users.util.ResponseBuilder;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

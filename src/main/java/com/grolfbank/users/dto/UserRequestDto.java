@@ -1,6 +1,8 @@
-package com.grolfbank.grolfbankusers.dto;
+package com.grolfbank.users.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.grolfbank.nextofkin.dto.NextOfKinRequestDto;
+import com.grolfbank.nextofkin.entity.NextOfKin;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -73,4 +75,5 @@ public class UserRequestDto {
     @NotBlank(message = "Occupation is required")
     @Column(updatable = false)
     private String occupation;
+    private NextOfKinRequestDto nextOfKinRequestDto;
 }
