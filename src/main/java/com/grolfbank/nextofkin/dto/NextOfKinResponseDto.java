@@ -1,24 +1,17 @@
 package com.grolfbank.nextofkin.dto;
 
-import com.grolfbank.users.dto.UserRequestDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class NextOfKinRequestDto {
-
+public class NextOfKinResponseDto {
     private String fullName;
-
     private String relationship;
-
     private String address;
-
     private String occupation;
 
 }

@@ -18,7 +18,7 @@ public class UserController {
     private final ResponseBuilder responseBuilder;
 
     @PostMapping("/save")
-    public ResponseEntity<?> save(@Valid @RequestBody UserRequestDto userRequestDto){
+    public ResponseEntity<?> save(@Valid @RequestBody UserRequestDto userRequestDto) {
         userService.createUser(userRequestDto);
         return responseBuilder.buildResponse(true, "User created successfully!", HttpStatus.CREATED, null);
     }
@@ -30,19 +30,19 @@ public class UserController {
     }
 
     @GetMapping("/getSingle/{id}")
-    public ResponseEntity<?> getSingleUser(@PathVariable Long id){
+    public ResponseEntity<?> getSingleUser(@PathVariable Long id) {
         var user = userService.getSingleUser(id);
         return responseBuilder.buildResponse(true, "User retrieved successfully!", HttpStatus.FOUND, user);
     }
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDto userRequestDto){
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDto userRequestDto) {
         userService.updateUser(id, userRequestDto);
         return responseBuilder.buildResponse(true, "User updated successfully!", HttpStatus.OK, null);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable Long id){
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return responseBuilder.buildResponse(true, "User deleted successfully!", HttpStatus.OK, null);
     }

@@ -10,7 +10,6 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Table(name = "nextOfKin_tbl")
 
 public class NextOfKin {
@@ -21,6 +20,8 @@ public class NextOfKin {
      private String fullName;
      private String relationship;
      private String address;
+     private String email;
+     private String mobile;
      private String occupation;
 
     @OneToOne(mappedBy = "nextOfKin")

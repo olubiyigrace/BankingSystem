@@ -75,5 +75,9 @@ public class UserRequestDto {
     @NotBlank(message = "Occupation is required")
     @Column(updatable = false)
     private String occupation;
+
+    @NotNull(message = "Next of Kin cannot be null")
+    @NotBlank(message = "Next of Kin is required")
+    @Column(updatable = false)
     private NextOfKinRequestDto nextOfKinRequestDto;
 }

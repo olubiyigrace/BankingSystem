@@ -1,5 +1,6 @@
 package com.grolfbank.users.mapper;
 
+import com.grolfbank.nextofkin.dto.NextOfKinResponseDto;
 import com.grolfbank.users.dto.UserRequestDto;
 import com.grolfbank.users.dto.UserResponseDto;
 import com.grolfbank.users.entity.User;
@@ -32,6 +33,14 @@ public class UserMapper {
                 .nin(user.getNin())
                 .occupation(user.getOccupation())
                 .createdDate(user.getCreatedAt())
+                .nextOfKinResponseDto(
+                        NextOfKinResponseDto.builder()
+                                .fullName(user.getNextOfKin().getFullName())
+                                .relationship(user.getNextOfKin().getRelationship())
+                                .address(user.getNextOfKin().getAddress())
+                                .occupation(user.getNextOfKin().getOccupation())
+                                .build()
+                )
                 .build();
     }
 }

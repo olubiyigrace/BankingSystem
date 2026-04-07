@@ -1,5 +1,6 @@
 package com.grolfbank.users.dto;
 
+import com.grolfbank.nextofkin.dto.NextOfKinResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,4 +25,5 @@ public class UserResponseDto {
     private String nin;
     private String occupation;
     private LocalDateTime createdDate;
+    private NextOfKinResponseDto nextOfKinResponseDto;
 }
