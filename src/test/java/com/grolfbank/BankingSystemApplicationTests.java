@@ -46,18 +46,12 @@ class BankingSystemApplicationTests {
 	@Test
 	@DisplayName("should create a new user")
 	void shouldCreateANewUser() {
-
-		// Act
 		UserResponseDto userResponse = userServiceImpl.createUser(userRequestDto);
 
-		// Assert
 		assertNotNull(userResponse);
 		assertNotNull(userResponse.getId());
-
 		assertEquals("Olubiyi Grace Oluwafunke", userResponse.getFullName());
 		assertEquals("grace@gmail.com", userResponse.getEmail());
-
-
 		assertEquals(1, userRepository.count());
 		assertTrue(userRepository.existsByEmail("grace@gmail.com"));
 	}
@@ -65,29 +59,22 @@ class BankingSystemApplicationTests {
 	@Test
 	@DisplayName("should throw an exception if email already exists")
 	void shouldThrowAnExceptionIfEmailExists() {
-
-		// First insert
 		userServiceImpl.createUser(userRequestDto);
-		// Second insert should fail
+
 		RuntimeException exception = assertThrows(RuntimeException.class,
 				() -> userServiceImpl.createUser(userRequestDto));
 		assertTrue(exception.getMessage().toLowerCase().contains("already"));
-		// Ensure only ONE user exists
 		assertEquals(1, userRepository.count());
 	}
 
 	@Test
 	@DisplayName("should return a single user")
 	void shouldReturnASingleUser() {
-
-		// Save user
 		UserResponseDto savedUser = userServiceImpl.createUser(userRequestDto);
-		// Fetch user
 		UserResponseDto userResponse = userServiceImpl.getSingleUser(savedUser.getId());
 
 		assertNotNull(userResponse);
 		assertEquals(savedUser.getId(), userResponse.getId());
-		//Ensure still only one user in DB
 		assertEquals(1, userRepository.count());
 	}
 }
